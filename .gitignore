@@ -218,14 +218,9 @@ __marimo__/
 .streamlit/secrets.toml
 
 # Python caches
-__pycache__/
 *.py[cod]
 
-# Virtual Environments
-venv/
-env/
-
-# The Vector Database (Don't upload local data!)
+# The Vector Database 
 chroma_db/
 
 # Streamlit/OS files
