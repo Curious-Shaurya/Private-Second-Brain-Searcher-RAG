@@ -7,8 +7,7 @@ from main import SecondBrain
 st.set_page_config(page_title="Second Brain | Tuition Assistant", layout="wide")
 
 # 2. CACHING THE ENGINE
-# As a C++ dev, think of this as a 'Singleton' or a persistent object. 
-# This ensures the AI model (SentenceTransformer) only loads ONCE.
+# This ensures the AI model only loads once.
 @st.cache_resource
 def load_brain():
     return SecondBrain()

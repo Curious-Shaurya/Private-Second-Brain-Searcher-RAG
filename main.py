@@ -12,9 +12,8 @@ class SecondBrain:
     def add_document(self, file_path: str):
         if not os.path.exists(file_path):
             print(f" ERROR: I can't find the file at: {file_path}")
-            # Try printing the absolute path to see if it looks weird
             print(f" Looking at absolute path: {os.path.abspath(file_path)}")
-            return  # Stop here so we don't crash later
+            return  # Stop here so it doesn't crash later
     
         chunks = self.processor.processFile(file_path)
         vectors = self.vectors.embed_chunks(chunks)
@@ -36,9 +35,6 @@ if __name__ == "__main__":
     brain = SecondBrain()
     
     # 1. Add a document 
-    # brain.add_document(r"D:\AV Rising Stars Tuition\AV Simple Future .pdf")
-    # brain.add_document(r"D:\AV Rising Stars Tuition\AV Past Perfect Continuous Tense .pdf")
-    # brain.add_document(r"D:\AV Rising Stars Tuition\AV Simple Past.pdf")
     brain.add_document(r"D:\AV Rising Stars Tuition\English\Plurals_and_Possessives_Worksheet_Final.docx")
         
     # 2. Ask a question
@@ -59,7 +55,6 @@ if __name__ == "__main__":
             filename = os.path.basename(full_path)
 
             # 2. Create a preview (First 150 characters)
-            # We also replace newlines with spaces to keep the terminal tidy
             preview = text.strip().replace("\n", " ")[:150]
 
             print(f"📄 FILE: {filename}")
