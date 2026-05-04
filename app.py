@@ -21,8 +21,8 @@ with st.sidebar:
     
     # Drag and Drop widget
     uploaded_files = st.file_uploader(
-        "Drop PDFs here", 
-        type="pdf", 
+        "Drop your documents here", 
+        type=["pdf","docx"],
         accept_multiple_files=True,
         label_visibility="collapsed"
     )

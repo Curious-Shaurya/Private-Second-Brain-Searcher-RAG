@@ -11,7 +11,8 @@ class VectorManager:
 
     def add_to_database(self, chunks: list[str], vectors: list, metadata: list[dict]):
         # We need to give each item a unique ID
-        file_prefix = os.path.basename(metadata[0].get("source", "doc"))
+        if metadata and len(metadata) > 0:
+            file_prefix = os.path.basename(metadata[0].get("source", "doc"))
         chunk_ids = [f"{file_prefix}_{i}" for i in range(len(chunks))]
         self.collection.add(
             ids=chunk_ids,

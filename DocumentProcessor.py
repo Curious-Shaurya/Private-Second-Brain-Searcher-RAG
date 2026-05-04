@@ -34,12 +34,16 @@ class DocumentProcessor:
     
     def _handleDOCX(self, path):
         doc = Document(path)
-        paragraphs_text = []
+        full_text = []
         
-        for paragraph in doc.paragraphs:
-            line = paragraph.text
-            if line:
-                paragraphs_text.append(line)
-            
+        for para in doc.paragraphs:
+            if para.text.strip():
+                full_text.append(para.text.strip())
+                
+        for table in doc.tables:
+            for row in table.rows:
+                for cell in row.cells:
+                    if cell.text.strip():
+                        full_text.append(cell.text.strip())
         
-        return "\n".join(paragraphs_text)
+        return "\n".join(full_text)
